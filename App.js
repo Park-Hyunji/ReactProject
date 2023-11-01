@@ -1,26 +1,27 @@
 import React, { useState } from 'react';
-import './App.css';
+import { Routes, Route } from 'react-router-dom';
 import Login from './Login';
-
-import userData from './users.json'; // JSON 파일 가져오기
+import Main from './MainPage';
+import SignUp from './SignUp';
 
 function App() {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [authenticated, setAuthenticated] = useState(false);
+  const [users, setUsers] = useState([]); // 사용자 정보를 관리하는 상태
 
-  const handleLogin = () => {
-    setIsAuthenticated(true);
+  // 회원 가입 처리 함수
+  const handleSignUp = (newUser) => {
+    // 사용자 정보를 추가하는 로직을 여기에 구현
+    setUsers([...users, newUser]);
   };
 
   return (
     <div className="App">
-      {isAuthenticated ? (
-        <div>
-          <h2>메인 페이지</h2>
-          <p>환영합니다! 이것은 메인 페이지입니다.</p>
-        </div>
-      ) : (
-        <Login users={userData.users} onLogin={handleLogin} />
-      )}
+      <h1>앱 제목</h1>
+      <Routes>
+        <Route path="/login" element={<Login Loginuser={setAuthenticated} users={users} />}/>
+        <Route path="/signup" element={<SignUp onSignUp={handleSignUp} />}/>
+        <Route path="/main" element={authenticated ? <Main /> : <Login Loginuser={setAuthenticated} users={users} />}/>
+      </Routes>
     </div>
   );
 }
