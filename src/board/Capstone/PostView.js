@@ -5,10 +5,10 @@ import { db } from '../../firebase';
 import { useLocation } from 'react-router-dom';
 import './PostView.css';
 import { useNavigate } from 'react-router-dom';
-import whiteheart from '../img/human.png'
+import human from '../img/human.png'
 import { Card,Input, } from 'antd';
-import heart from '../img/blueheart.png'
-import commentboogie from '../img/commentboogie.jpeg'
+import dm from '../img/dm.png'
+import person from '../img/commentboogie.jpeg'
 import moment from 'moment';
 
 const { TextArea } = Input;
@@ -89,7 +89,7 @@ const PostView = ({ history }) => {
         {postData ? (
           <>
           <div className="post-view-row">
-            <img src={whiteheart} alt={whiteheart} width="60"></img> 익명  <label className="comment-time">{postData[idx].createAt}</label>
+            <p style={{fontFamily :"bori"}}> <img src={person} alt={human} width="27"></img> 익명   <label className="comment-time">{postData[idx].createdAt}</label></p>
             </div>
             <div className="post-view-title">
               
@@ -110,7 +110,7 @@ const PostView = ({ history }) => {
               onChange={(e) => setNewComment(e.target.value)}
               placeholder="댓글을 입력하세요"
             />
-            <img className="comment-submit" src={heart} alt="Submit Comment" onClick={() => handleCommentSubmit(postData[idx].id)} />
+            <img src={dm} alt="Submit Comment" onClick={() => handleCommentSubmit(postData[idx].id)} style={{ width : "45px",  height : "50px"}}/>
           </form>
           </div>
 
@@ -118,7 +118,7 @@ const PostView = ({ history }) => {
             <div className="comment-container">
               {comments.map((comment, index) => (
                 <div key={index} className="comment-item">
-                  <img src={commentboogie} width="50"></img>
+                  <img src={human} width="50"></img>
                   <p className="comment-content">{comment.content}</p>
                   <p className="comment-time">{comment.createdAt}</p>
                 </div>

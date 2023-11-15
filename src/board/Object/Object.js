@@ -12,7 +12,7 @@ import { Modal } from 'antd';
 import Pagination from 'react-bootstrap/Pagination';
 import edit from '../img/edit.png'
 
-const ComputerProgramming = () => {
+const Object = () => {
   const [dataList, setDataList] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage] = useState(10);
@@ -22,7 +22,7 @@ const ComputerProgramming = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const postCollection = collection(db, 'posts');
+      const postCollection = collection(db, 'posts6');
       const snapshot = await getDocs(query(postCollection, orderBy('createdAt', 'desc')));
       const postData = snapshot.docs.map((doc) => ({
         id: doc.id,
@@ -56,7 +56,7 @@ const ComputerProgramming = () => {
 
   const handleDeleteConfirm = async () => {
     try {
-      const postRef = doc(db, 'posts', deleteTargetId);
+      const postRef = doc(db, 'posts6', deleteTargetId);
       await deleteDoc(postRef);
 
       const updatedDataList = dataList.filter((item) => item.id !== deleteTargetId);
@@ -78,14 +78,14 @@ const ComputerProgramming = () => {
       <Header />
       
       <div className="korean-font"  style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-      <p style={{fontFamily: 'bori', fontWeight: 'bold', fontSize: '30px', color: 'skyblue' , marginLeft : "680px"}}>컴퓨터프로그래밍 게시판</p><img src={edit} style={{width: "30px", marginRight:"180px" }} onClick={() => navigate('./writer')} /> </div>
+      <p style={{fontFamily: 'bori', fontWeight: 'bold', fontSize: '30px', color: 'skyblue' , marginLeft : "680px"}}>객체지향언어1 게시판</p><img src={edit} style={{width: "30px", marginRight:"180px" }} onClick={() => navigate('./writer')} /> </div>
 
       <CommonTable headersName={['글번호', '제목', '작성일', '삭제']}  >
         {currentPosts.map((item, index) => (
           <CommonTableRow key={index + indexOfFirstPost} >
             <CommonTableColumn >{index + 1 + indexOfFirstPost}</CommonTableColumn>
             <CommonTableColumn>
-              <Link to={`/ComputerProgramming/${index + indexOfFirstPost}`} state={{ data: currentPosts }}  style={{ fontWeight: 'bold' ,fontFamily: 'bori', fontSize: '20px', color: 'black', textDecoration: 'none' }} >
+              <Link to={`/Object/${index + indexOfFirstPost}`} state={{ data: currentPosts }}  style={{ fontWeight: 'bold' ,fontFamily: 'bori', fontSize: '20px', color: 'black', textDecoration: 'none' }} >
                 {item.title}
               </Link>
             </CommonTableColumn>
@@ -125,7 +125,7 @@ const ComputerProgramming = () => {
   );
 };
 
-export default ComputerProgramming;
+export default Object;
 
 
 

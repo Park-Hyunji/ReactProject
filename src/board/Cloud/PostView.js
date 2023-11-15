@@ -24,7 +24,7 @@ const PostView = ({ history }) => {
   useEffect(() => {
     const fetchPostData = async () => {
       try {
-        const postRef = doc(db, 'posts2', idx);
+        const postRef = doc(db, 'posts8', idx);
         const postSnap = await getDoc(postRef);
   
         if (postSnap.exists()) {
@@ -35,7 +35,7 @@ const PostView = ({ history }) => {
   
         // 해당 게시글의 댓글만 가져오기
         const commentsQuery = query(
-          collection(db, 'comments2'),
+          collection(db, 'comments8'),
           where('postId', '==', postData?(postData[idx].id) : "없습니다"), // postId로 필터링
           orderBy('createdAt', 'asc')
         );
@@ -71,7 +71,7 @@ const PostView = ({ history }) => {
 
     try {
       // 댓글 추가
-      await addDoc(collection(db, 'comments2'), commentData);
+      await addDoc(collection(db, 'comments8'), commentData);
 
       // 댓글 목록 업데이트
       setComments([...comments, commentData]);
@@ -130,14 +130,13 @@ const PostView = ({ history }) => {
       ) : (
         '해당 게시글을 찾을 수 없습니다.'
       )}
-      <button className="post-view-go-list-btn" onClick={() => navigate('/ProgrammingLab')}>
+      <button className="post-view-go-list-btn" onClick={() => navigate('/Cloud')}>
         목록으로 돌아가기
       </button>
     </div>
   </>
 );
       }
-      
 
 export default PostView;
 

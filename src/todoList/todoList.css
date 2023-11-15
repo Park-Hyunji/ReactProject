@@ -1,4 +1,12 @@
-.mainLayout{
+.TodoList {
+    
+    padding: 0;
+    list-style: none;
+    min-height: 320px;
+    max-height: 513px;
+    overflow-y: auto;
+  }
+/*.mainLayout{
     display: flex;
     justify-content: center;
     color:#0d0d0d;
@@ -23,8 +31,8 @@
     background-color:#EFF5FB;
     align-items: center;
 
-}
-
+}*/
+/*
 .todoTitle{
     width: 100%;
     padding: 20px 5px 20px 5px;
@@ -33,8 +41,8 @@
     font-size: 18px;
     text-align: center;
     color:#045FB4;
-}
-
+}*/
+/*
 .todoAdd{
     width: 100%;
     display: flex;
@@ -123,3 +131,4 @@
     justify-content: center;
     color: #BDBDBD;
 }
+*/

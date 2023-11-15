@@ -6,8 +6,10 @@
 }
 
 .post-view-title {
-  font-family: 'HSSaemaul-Regular';
-  font-size: 50px;
+  font-family: 'bori';
+  font-size: 30px;
+  font-weight: bold;
+  color: cornflowerblue;
 }
 
 .post-view-wrapper {
@@ -20,8 +22,8 @@
 }
 
 .post-view-content {
-  font-family: "Uiyeun";
-  font-size: 30px;
+  font-family: "bori";
+  font-size: 20px;
 }
 
 .post-view-label {
@@ -65,8 +67,8 @@
 
 .comment-content {
   flex: 1;
-  font-family: "Uiyeun";
-  font-size: 30px;
+  font-family: "bori";
+  font-size: 25px;
 }
 
 .comment-time {
@@ -83,3 +85,5 @@
   flex: 1;
   margin-right: 10px;
 }
+
+

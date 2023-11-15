@@ -2,7 +2,7 @@ import React from 'react';
 
 const CommonTableColumn = ({ children }) => {
   return (
-    <td className="common-table-column" style={{ fontFamily :"Uiyeun", fontSize : '30px', color : 'black'}}>
+    <td className="common-table-column" style={{ fontFamily :"bori", fontSize : '20px', color : 'black'}}>
       {
         children
       }

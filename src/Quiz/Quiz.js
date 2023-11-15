@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { doc, collection, addDoc, deleteDoc, onSnapshot } from 'firebase/firestore';
-import { db } from './firebase';
+import { db } from '../firebase';
+import { Input } from 'antd';
+import './Quiz.css';
 
 const problemsData = [
   { id: 1, question: '두 정수 A와 B를 입력받은 다음, A+B를 출력하는 프로그램을 작성하시오' },
@@ -10,6 +12,7 @@ const problemsData = [
   { id: 5, question: '알파벳으로만 이루어진 단어를 입력받아, 그 길이를 출력하는 프로그램을 작성하시오.' },
 ];
 
+const { TextArea } = Input;
 
 const App = () => {
   const [randomProblem, setRandomProblem] = useState({});
@@ -55,46 +58,48 @@ const App = () => {
     }
   };
 
+  const renderCommentText = (text) => {
+    // Replace newline characters with HTML line break tags
+    return text.split('\n').map((line, index) => (
+      <React.Fragment key={index}>
+        {line}
+        <br />
+      </React.Fragment>
+    ));
+  };
+
   return (
-    <div className="App" style={{ width: '400px', margin: 'auto', padding: '30px', fontFamily: 'Akzidenz-grotesk-bold', backgroundColor: '#f0f0f0' }}>
-      <div className="problem-container" style={{ backgroundColor: '#fff', padding: '20px', marginBottom: '10px', borderRadius: '8px', boxShadow: '0 2px 4px rgba(0,0,0,0.1)' }}>
-        <h1 style={{ color: '#1E96FF', fontFamily: 'KoPubDotumBold', fontSize: '30px', textShadow: '2px 2px 4px rgba(0,0,0,0.2)' }}>오늘의 문제</h1><br></br>
+    <div className="Quiz">
+      <div className="problem">
+        <h1>오늘의 문제</h1>
+        <br />
+        <br />
         {randomProblem && (
           <div>
-            <p style={{ fontFamily: 'Akzidenz-grotesk-bold', fontSize: '15px' }}>{randomProblem.question}</p>
+            <p>{randomProblem.question}</p>
           </div>
         )}
       </div>
 
-      <div className="comments-section" style={{ backgroundColor: '#fff', padding: '10px', borderRadius: '8px', boxShadow: '0 2px 4px rgba(0,0,0,0.1)' }}>
+      <div className="replies-section">
         <div>
-          <input
-            type="textarea"
+          <TextArea
             value={reply}
             onChange={(e) => setReply(e.target.value)}
             placeholder="댓글을 입력하세요"
-            style={{
-              width: '100%',
-              padding: '5px',
-              marginBottom: '5px',
-              border: '1px solid #ccc',
-              borderRadius: '5px',
-              fontFamily: 'Geogia'
-            }}
           />
-          <button onClick={handleReplySubmit} style={{ fontFamily: 'Akzidenz-grotesk-bold', width: '100%', padding: '8px', border: 'none', borderRadius: '5px', backgroundColor: '#007bff', color: '#fff' }}>
-            댓글 남기기
-          </button>
+          <button onClick={handleReplySubmit}>댓글 남기기</button>
         </div>
         {filteredReplies.length > 0 ? (
-          filteredReplies.map((reply) => (
-            <div key={reply.id} style={{ backgroundColor: '#f9f9f9', padding: '8px', marginBottom: '5px', borderRadius: '5px', boxShadow: '0 1px 2px rgba(0,0,0,0.1)', display: 'flex', justifyContent: 'space-between' }}>
-              <p style={{ marginRight: '10px', fontFamily: 'Geogia', color: 'black' }}>{reply.text}</p>
-              <button onClick={() => handleReplyDelete(reply.id)} style={{ fontFamily: 'Uiyeun', padding: '5px', border: 'none', borderRadius: '5px', backgroundColor: '#ff5a5f', color: '#fff' }}>삭제</button>
+          // Reverse the order of filteredReplies before mapping
+          filteredReplies.reverse().map((reply) => (
+            <div key={reply.id} className="comment">
+              <p>{renderCommentText(reply.text)}</p>
+              <button onClick={() => handleReplyDelete(reply.id)}>삭제</button>
             </div>
           ))
         ) : (
-          <p style={{ color: 'black', fontFamily: 'Geogia' }}></p>
+          <p></p>
         )}
       </div>
     </div>
@@ -102,3 +107,6 @@ const App = () => {
 };
 
 export default App;
+
+
+

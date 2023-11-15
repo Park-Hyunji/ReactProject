@@ -1,99 +1,39 @@
-import {useRef} from 'react';
+import React, { useCallback } from 'react';
+import ToDoListItem from './ToDoListItem';
 import './todoList.css';
-import { useState } from 'react';
-import { useEffect } from 'react';
-import { LocationOff } from '@mui/icons-material';
+import {List} from 'react-virtualized'
 
-function TodoList(){
-
-  const[todoList,setTodoList] = useState([]);
-  const[sequance,setSequance] = useState(null);
-  const refTodoItem = useRef();
-
-  useEffect(()=>{
-    let sequance = window.localStorage.getItem("sequence")
-    if(sequance===null){
-      window.localStorage.setItem("sequance","0")
-      sequance=0
-    }
-    const handleSetInit=()=>{
-      window.localStorage.setItem("todoList","[]")
-      return "[]"
-    }
-    let todo=JSON.parse(window.localStorage.getItem("todoList")??handleSetInit());
-
-    setTodoList(todo)
-    setSequance(Number(sequance))
-
-  },[])
-
-  const handleTodoAdd = (item)=>{
-    if(sequance===null){
-      return
-    }
-    let todo=[...todoList]
-
-    todo.push({tf:false,id:sequance+1,text:item})
-
-    window.localStorage.setItem("todoList",JSON.stringify(todo));
-    window.localStorage.setItem("sequance",String(sequance+1));
-
-    setTodoList(todo)
-    setSequance(sequance+1)
-    refTodoItem.current.value=''
-  }
-
-  const handleTodoCheck=(tf,idx)=>{
-    let todo = [...todoList]
-    todo[idx].tf = LocationOff
-    
-    window.localStorage.setItem("todoList",JSON.stringify(todo));
-    setTodoList(todo)
-  }
-
-  const handleTodoDelete = (id) =>{
-    let todo=[...todoList]
-    todo = todo.filter((val)=>val.id !==id);
-
-    window.localStorage.setItem("todoList",JSON.stringify(todo));
-    setTodoList(todo)
-  }
-
-  return(
-    <div className='mainLayout'>
-      <div className='todoLayout'>
-        <div className='todoTop'>
-         <div className='todoTitle'>
-          TODO LIST
-          </div>
-        <div className='todoAdd'>
-          <input type="text" placeholder='할 일을 입력'
-          ref={refTodoItem}/>
-          <div onClick={()=>handleTodoAdd(refTodoItem.current.value)}>
-          +
-          </div>
-        </div>
-        <div className='listLayout'>
-          {todoList.map((val,idx)=>
-
-            <div className='todoItem' key={idx}>
-            <div className='todoCheckBox' onClick={()=>handleTodoCheck(val.tf,idx)}>
-              <div className='checkIcon'>
-                {val.tf?'v':''}
-              </div>
-              <span>{val.text}</span>
-            </div>
-              <div className='deleteBox' onClick={()=>handleTodoDelete(val.id)}>
-                x
-              </div>
-            </div>
-          )}
-        </div>
-      </div>
-    </div>
-  </div>
+function TodoList({ todos, onRemove, onToggle, onChangeSelectedTodo, onInsertToggle }) {
+  const rowRender = useCallback(
+    ({index,key,style}) => {
+      const todo = todos[index];
+      return(
+        <ToDoListItem
+        todo={todo}
+        key={key}
+        onToggle={onToggle}
+        onRemove={onRemove}
+        onInsertToggle={onInsertToggle}
+        onChangeSelectedTodo={onChangeSelectedTodo}
+        style={style}
+      />
+      )
+    },
+    [ todos, onRemove, onToggle, onChangeSelectedTodo, onInsertToggle ]
+  )
+  
+  return (
+    <List 
+      className='TodoList'
+      width={480} // 전체너비
+      height={513}// 전체 높이
+      rowCount={todos.length}//항목갯수
+      rowHeight={57} // 항목 높이
+      rowRenderer={rowRender} //항목을 렌더링할 때 쓰는 함수
+      list={todos}//배열
+      style={{outline:'none'}} //List에 기본 적용되는 outline 스타일 제거
+    />
   );
-
 }
 
-export default TodoList;
+export default React.memo(TodoList);

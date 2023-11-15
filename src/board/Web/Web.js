@@ -11,9 +11,9 @@ import { db } from '../../firebase';
 import { DeleteOutlined, EditOutlined } from '@ant-design/icons';
 import { Modal } from 'antd';
 import Pagination from 'react-bootstrap/Pagination';
-import heart from '../img/blueheart.png'
+import edit from '../img/edit.png'
 
-const ComputerProgramming = () => {
+const Web = () => {
   const [dataList, setDataList] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage] = useState(10);
@@ -77,16 +77,16 @@ const ComputerProgramming = () => {
   return (
     <>
       <Header />
-      <FloatButton onClick={() => navigate('./writer')} />
-      <div className="korean-font" style={{ fontFamily: 'HSSaemaul-Regular', fontWeight: 'bold', fontSize: '28px', color: 'skyblue' }}>
-      <img src={heart} alt={heart}></img>웹프레임워크 게시판<img src={heart} alt={heart}></img></div>
+      
+      <div className="korean-font"  style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+      <p style={{fontFamily: 'bori', fontWeight: 'bold', fontSize: '30px', color: 'skyblue' , marginLeft : "680px"}}>웹프레임워크 게시판</p><img src={edit} style={{width: "30px", marginRight:"180px" }} onClick={() => navigate('./writer')} /> </div>
 
-      <CommonTable headersName={['글번호', '제목', '작성일', '삭제']} >
+      <CommonTable headersName={['글번호', '제목', '작성일', '삭제']}  >
         {currentPosts.map((item, index) => (
           <CommonTableRow key={index + indexOfFirstPost} >
             <CommonTableColumn >{index + 1 + indexOfFirstPost}</CommonTableColumn>
             <CommonTableColumn>
-              <Link to={`/Web/${index + indexOfFirstPost}`} state={{ data: currentPosts }} style={{ fontFamily :"Uiyeun", fontSize : '30px', color : 'black'}} >
+              <Link to={`/Web/${index + indexOfFirstPost}`} state={{ data: currentPosts }}  style={{ fontWeight: 'bold' ,fontFamily: 'bori', fontSize: '20px', color: 'black', textDecoration: 'none' }} >
                 {item.title}
               </Link>
             </CommonTableColumn>
@@ -126,7 +126,7 @@ const ComputerProgramming = () => {
   );
 };
 
-export default ComputerProgramming;
+export default Web;
 
 
 

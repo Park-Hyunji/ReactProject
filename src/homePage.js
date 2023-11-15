@@ -22,22 +22,23 @@ const HomePage = () => {
       </div>
 
       <div className='timetableContainer' >
-        <Button className='timetableButton' as={Link} to="/TimeTable" >
-          시간표 보러가기 
-        </Button>
+        <Link to="/TimeTable" style=
+        {{fontFamily: 'bori', fontSize: '20px', color: 'black', textDecoration: 'none', marginLeft :"20px" }}>
+          <p>시간표 보러가기</p>
+        </Link>
       </div>
 
       <div className='whiteboxContainer'>
           {/* 왼쪽 구역 */}
           <div className='section1'>
-          <Link to="/Quiz">오늘의 문제</Link>
+          <Link to="/Quiz" style={{ fontWeight: 'bold' ,fontFamily: 'bori', fontSize: '20px', color: 'black', textDecoration: 'none' }} >오늘의 문제</Link>
             <p></p>
             <p>오늘의 문제를 풀어보세요</p>
           </div>
 
           {/* 오른쪽 구역 */}
           <div className='section2'>
-          <Link to="/Youtube">트랙 소개영상</Link>
+          <Link to="/Youtube" style={{ fontWeight: 'bold' ,fontFamily: 'bori', fontSize: '20px', color: 'black', textDecoration: 'none' }}>트랙 소개영상</Link>
             <p></p>
             <p>트랙 소개영상 보러가기</p>
           </div>

@@ -11,7 +11,7 @@ const CommonTable = props => {
           {
             headersName.map((item, index) => {
               return (
-                <td className="common-table-header-column" key={index} style={{ fontFamily :"Uiyeun", fontSize : '30px', color : 'black'}}>{ item }</td>
+                <td className="common-table-header-column" key={index} style={{ fontFamily :"bori", fontSize : '20px', color : 'black'}}>{ item }</td>
               )
             })
           }

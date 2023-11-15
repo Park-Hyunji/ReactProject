@@ -58,3 +58,18 @@
   font-weight: normal;
   font-style: normal;
 }
+
+@font-face {
+  font-family: "bold";
+  src: url('./font/Akzidenz-grotesk-bold.ttf');
+}
+
+@font-face {
+  font-family: "light";
+  src: url('./font/Akzidenz-grotesk-light.ttf');
+}
+
+@font-face {
+  font-family: 'bori';
+  src: url('./font/SKYBORI.ttf');
+}
