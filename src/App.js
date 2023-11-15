@@ -19,7 +19,6 @@ import CapstoneWriter from './board/Capstone/writer'
 import YouTube from './Youtube'
 import Quiz from './Quiz'
 import TimeTable from './timetable/TimeTable'
-import './App.css'
 
 function App() {
   const [users, setUsers] = useState([]);

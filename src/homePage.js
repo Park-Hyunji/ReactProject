@@ -8,6 +8,7 @@ import React from 'react';
 //import YouTube from './Youtube';
 //import TodoList from './todoList/TodoList';
 import Button from '@mui/material/Button';
+
 const HomePage = () => {
   return (
     <>
@@ -20,8 +21,8 @@ const HomePage = () => {
         </div>
       </div>
 
-      <div className='timetableContainer' style={{ fontFamily: 'taebaek'}}>
-        <Button className='timetableButton' as={Link} to="/TimeTable" style={{ fontFamily: 'taebaek'}} >
+      <div className='timetableContainer' >
+        <Button className='timetableButton' as={Link} to="/TimeTable" >
           시간표 보러가기 
         </Button>
       </div>

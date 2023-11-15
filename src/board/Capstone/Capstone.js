@@ -78,8 +78,8 @@ const ComputerProgramming = () => {
     <>
       <Header />
       <FloatButton onClick={() => navigate('./writer')} />
-      <div className="korean-font" style={{ fontFamily: 'Uiyeun', fontWeight: 'bold', fontSize: '28px', color: 'skyblue', display:"center" }}>
-     캡스톤디자인 게시판</div>
+      <div className="korean-font" style={{ fontFamily: 'HSSaemaul-Regular', fontWeight: 'bold', fontSize: '28px', color: 'skyblue' }}>
+      <img src={heart} alt={heart}></img>캡스톤디자인 게시판<img src={heart} alt={heart}></img></div>
 
       <CommonTable headersName={['글번호', '제목', '작성일', '삭제']} >
         {currentPosts.map((item, index) => (

@@ -47,14 +47,14 @@
 
 @font-face {
   font-family: 'HSSaemaul-Regular';
-  src: url('./font/HSSaemaul-Regular.ttf') ;
+  src: url('./font/HSSaemaul-Regular.ttf') format('woff');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Uiyeun';
-  src: url('./font/온글잎\ 의연체.ttf');
+  src: url('./font/온글잎\ 의연체.ttf') format('woff');
   font-weight: normal;
   font-style: normal;
 }
