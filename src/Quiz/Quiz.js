@@ -3,6 +3,7 @@ import { doc, collection, addDoc, deleteDoc, onSnapshot } from 'firebase/firesto
 import { db } from '../firebase';
 import { Input } from 'antd';
 import './Quiz.css';
+import Header from '../Layout/Header';
 
 const problemsData = [
   { id: 1, question: '두 정수 A와 B를 입력받은 다음, A+B를 출력하는 프로그램을 작성하시오' },
@@ -69,6 +70,8 @@ const App = () => {
   };
 
   return (
+    <>
+    <Header />
     <div className="Quiz">
       <div className="problem">
         <h1>오늘의 문제</h1>
@@ -103,6 +106,7 @@ const App = () => {
         )}
       </div>
     </div>
+    </>
   );
 };
 

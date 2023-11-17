@@ -3,11 +3,7 @@ import Header from './Layout/Header';
 import { Link } from 'react-router-dom';
 import './homePage.css';
 import React from 'react';
-//import TimeTable from './timetable/TimeTable';
-//import Quiz from './Quiz';
-//import YouTube from './Youtube';
-//import TodoList from './todoList/TodoList';
-import Button from '@mui/material/Button';
+
 
 const HomePage = () => {
   return (
@@ -23,7 +19,7 @@ const HomePage = () => {
 
       <div className='timetableContainer' >
         <Link to="/TimeTable" style=
-        {{fontFamily: 'bori', fontSize: '20px', color: 'black', textDecoration: 'none', marginLeft :"20px" }}>
+        {{fontFamily: 'bori', fontSize: '20px', color: 'black', textDecoration: 'none', marginLeft :"250px" }}>
           <p>시간표 보러가기</p>
         </Link>
       </div>
