@@ -21,7 +21,7 @@ function ToDoInsert({onInsert}) {
         <form className="TodoInsert" onSubmit={onSubmit}>
             <input 
             onChange={onChange}
-            value={value}  width={400} placeholder="할 일을 입력하세요 " />
+            value={value} placeholder="할 일을 입력하세요 " />
             <button type="submit">
                 <MdAdd />
             </button>

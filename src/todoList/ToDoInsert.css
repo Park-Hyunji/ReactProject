@@ -1,9 +1,9 @@
 .TodoInsert {
-    width:460px;
+    align-items: center;
     display: flex;
-    background: #495057;
+    background: #ffffff;
     input {
-      width: 100%;
+      flex:1;
       background: none;
       outline: none;
       border: none;
@@ -13,6 +13,7 @@
       color: white;
       &::placeholder {
         color: #dee2e6;
+        width : 400px;
       }
     }
     button {

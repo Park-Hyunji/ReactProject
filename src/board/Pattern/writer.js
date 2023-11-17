@@ -1,17 +1,34 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import { Form, Input, Button } from 'antd';
-import { addDoc, collection, Timestamp } from 'firebase/firestore';
+import { addDoc, collection, doc, updateDoc } from 'firebase/firestore';
 import { db } from '../../firebase';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import img from '../img/writerboogie.jpg';
 import './writer.css'; // 스타일 파일을 import합니다
 import moment from 'moment';
 
 const WritingForm = () => {
   const navigate = useNavigate();
+  const location = useLocation();
   const [content, setContent] = useState('');
+  const [form] = Form.useForm(); // Use Form hook to access the form instance
+  const [postId, setPostId] = useState(null);
+
+  useEffect(() => {
+    // If there's state in location, set the title, content, and postId
+    if (location.state) {
+      const { title, content, postId } = location.state;
+      setPostId(postId || null);
+
+      // Set initial values for the entire form
+      form.setFieldsValue({
+        title: title || '',
+        content: content || '',
+      });
+    }
+  }, [location.state, form]);
 
   const handleContentChange = (value) => {
     setContent(value);
@@ -19,33 +36,39 @@ const WritingForm = () => {
 
   const onFinish = async (values) => {
     const createdAt = moment().format('YYYY.MM.DD HH:mm:ss');
-    const newPost = { ...values, content, createdAt};
+    const newPost = { ...values, content, createdAt };
 
     try {
-      await addDoc(collection(db, 'posts7'), newPost);
-      
+      if (postId) {
+        // If postId exists, it means we are editing an existing post
+        const postRef = doc(db, 'posts7', postId);
+        await updateDoc(postRef, newPost);
+      } else {
+        // If postId doesn't exist, it means we are creating a new post
+        await addDoc(collection(db, 'posts7'), newPost);
+      }
 
       navigate('/Pattern');
 
-      console.log('New post added successfully');
+      console.log('Post saved successfully');
     } catch (error) {
-      console.error('Error adding document: ', error);
+      console.error('Error adding/updating document: ', error);
     }
   };
 
   return (
     <div className="writing-form-container">
       <img src={img} alt={img} className="header-image" />
-      
-      <Form onFinish={onFinish} className="writing-form">
+
+      <Form form={form} onFinish={onFinish} className="writing-form">
         <Form.Item style={{ textAlign: 'right', marginTop: 16 }}>
           <Button type="primary" htmlType="submit">
-            글쓰기
+            {postId ? '수정하기' : '글쓰기'}
           </Button>
         </Form.Item>
         <Form.Item
           name="title"
-          rules={[{ required: true, message: '제목을 입력하세요!' }]}
+          // No need to use initialValue here
         >
           <Input placeholder="제목을 입력하세요" />
         </Form.Item>
@@ -69,7 +92,6 @@ const WritingForm = () => {
             }}
           />
         </Form.Item>
-        
       </Form>
     </div>
   );

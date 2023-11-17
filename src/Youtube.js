@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import YouTube from 'react-youtube';
+import Header from './Layout/Header';
 
 const VideoPlayer = () => {
   const [playlistIndex, setPlaylistIndex] = useState(0);
@@ -15,6 +16,7 @@ const VideoPlayer = () => {
 
   return (
     <>
+    <Header />
       <div>
         <button onClick={() => handleButtonClick(0)}>웹 공학</button>
         <button onClick={() => handleButtonClick(1)}>모바일 소프트웨어</button>

@@ -7,7 +7,7 @@ import Header from '../../Layout/Header';
 import { useNavigate } from 'react-router-dom';
 import {collection,getDocs,orderBy,query,deleteDoc,doc } from 'firebase/firestore';
 import { db } from '../../firebase';
-import { DeleteOutlined } from '@ant-design/icons';
+import { DeleteOutlined,EditOutlined } from '@ant-design/icons';
 import { Modal } from 'antd';
 import Pagination from 'react-bootstrap/Pagination';
 import edit from '../img/edit.png'
@@ -72,6 +72,12 @@ const ComputerProgramming = () => {
     setDeleteModalVisible(false);
     setDeleteTargetId(null);
   };
+  const handleEditClick = (postId) => {
+    const selectedPost = dataList.find((item) => item.id === postId);
+    navigate('./writer', {
+      state: { title: selectedPost.title, content: selectedPost.content, postId: selectedPost.id },
+    });
+  };
 
   return (
     <>
@@ -80,7 +86,7 @@ const ComputerProgramming = () => {
       <div className="korean-font"  style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
       <p style={{fontFamily: 'bori', fontWeight: 'bold', fontSize: '30px', color: 'skyblue' , marginLeft : "680px"}}>컴퓨터프로그래밍 게시판</p><img src={edit} style={{width: "30px", marginRight:"180px" }} onClick={() => navigate('./writer')} /> </div>
 
-      <CommonTable headersName={['글번호', '제목', '작성일', '삭제']}  >
+      <CommonTable headersName={['글번호', '제목', '작성일','수정', '삭제']}  >
         {currentPosts.map((item, index) => (
           <CommonTableRow key={index + indexOfFirstPost} >
             <CommonTableColumn >{index + 1 + indexOfFirstPost}</CommonTableColumn>
@@ -90,6 +96,9 @@ const ComputerProgramming = () => {
               </Link>
             </CommonTableColumn>
             <CommonTableColumn>{item.createdAt}</CommonTableColumn>
+            <CommonTableColumn>
+              <EditOutlined onClick={() => handleEditClick(item.id)} />
+            </CommonTableColumn>
             <CommonTableColumn>
               <DeleteOutlined onClick={() => handleDeleteClick(item.id)} />
             </CommonTableColumn>
