@@ -1,0 +1,17 @@
+/* WritingForm.css */
+
+.writing-form-container {
+    padding: 20px;
+    border: 2px solid #87ceeb; /* 테두리 추가 및 하늘색으로 설정 */
+  }
+  
+  .writing-form-title {
+    color: #fff; /* 흰색 글자 색상 설정 */
+  }
+  
+  .header-image {
+    width: 20%; /* 이미지를 부모 요소에 맞게 넓게 설정 */
+    max-height: 200px; /* 이미지의 최대 높이 설정 */
+    object-fit: cover; /* 이미지가 찌그러지지 않도록 설정 */
+  }
+  
