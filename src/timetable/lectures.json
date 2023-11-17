@@ -1,0 +1,19 @@
+  [
+    { "day": "월요일", "lectures": [
+      { "title": "웹프레임워크1", "professor": "박승현", "classroom": "공학관101호" }
+    ]},
+    { "day": "화요일", "lectures": [
+        { "title": "자료구조", "professor": "유상미", "classroom": "공학관201호" }
+    ]},
+    { "day": "수요일", "lectures": [
+        { "title": "네트워크\n프로그래밍", "professor": "신성", "classroom": "상상관306호" }
+    ]},
+    { "day": "목요일", "lectures": [
+        { "title": "컴퓨터\n프로그래밍", "professor": "이재문", "classroom": "공학관 305호" }
+    ]},
+    { "day": "금요일", "lectures": [
+        { "title": "자료구조", "professor": "유상미", "classroom": "공학관201호" },
+        { "title": "데이터베이스", "professor": "장재영", "classroom": "탐구관 202호" }
+    ]}
+]
+  
