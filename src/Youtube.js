@@ -4,8 +4,9 @@ import YouTube from 'react-youtube';
 const VideoPlayer = () => {
   const [playlistIndex, setPlaylistIndex] = useState(0);
   const playlist = ["_hZlQ1UdZjs", "9s9UH-2HJac", "qXHmSuZrSKE", "GVKLwh87yTA"];
+  const videoTitles = ["웹 공학", "모바일 소프트웨어", "빅데이터", "디지털콘텐츠"];
 
-  const onEndHandler = (e) => {
+  const onEndHandler = () => {
     setPlaylistIndex((prevIndex) => (prevIndex + 1) % playlist.length);
   };
 
@@ -14,18 +15,32 @@ const VideoPlayer = () => {
   };
 
   return (
-    <>
+    <div style={{ textAlign: 'center', marginTop: '20px' }}>
       <div>
-        <button onClick={() => handleButtonClick(0)}>웹 공학</button>
-        <button onClick={() => handleButtonClick(1)}>모바일 소프트웨어</button>
-        <button onClick={() => handleButtonClick(2)}>빅데이터</button>
-        <button onClick={() => handleButtonClick(3)}>디지털콘텐츠</button>
+        {playlist.map((_, index) => (
+          <button
+            key={index}
+            onClick={() => handleButtonClick(index)}
+            style={{
+              padding: '10px 15px',
+              margin: '5px',
+              border: 'none',
+              borderRadius: '5px',
+              cursor: 'pointer',
+              fontSize: '16px',
+              backgroundColor: index === playlistIndex ? '#3498db' : '#ddd',
+              color: index === playlistIndex ? '#fff' : '#333',
+            }}
+          >
+            {`${videoTitles[index]}`}
+          </button>
+        ))}
       </div>
       <YouTube
         videoId={playlist[playlistIndex]}
         opts={{
-          width: "60%",
-          height: "560px",
+          width: '60%',
+          height: '560px',
           playerVars: {
             autoplay: 1,
             modestbranding: 1,
@@ -34,7 +49,7 @@ const VideoPlayer = () => {
         }}
         onEnd={onEndHandler}
       />
-    </>
+    </div>
   );
 };
 
