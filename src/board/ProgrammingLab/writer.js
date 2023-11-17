@@ -48,7 +48,7 @@ const WritingForm = () => {
         await addDoc(collection(db, 'posts2'), newPost);
       }
 
-      navigate('/PrgrmmaingLab');
+      navigate('/ProgrammingLab');
 
       console.log('Post saved successfully');
     } catch (error) {
