@@ -2,7 +2,7 @@
 
 .post-view-container {
   background-color: #87ceeb;
-  padding: 20px;
+  padding: 50px;
 }
 
 .post-view-title {
@@ -19,6 +19,7 @@
 
 .post-view-row {
   margin-bottom: 15px;
+  margin-top : 15px;
 }
 
 .post-view-content {

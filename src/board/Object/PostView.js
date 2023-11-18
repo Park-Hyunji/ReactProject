@@ -5,21 +5,19 @@ import { db } from '../../firebase';
 import { useLocation } from 'react-router-dom';
 import './PostView.css';
 import { useNavigate } from 'react-router-dom';
-import human from '../img/human.png';
 import { Input } from 'antd';
 import dm from '../img/dm.png';
-import person from '../img/personicon.jpeg';
 import moment from 'moment';
 import DeleteIcon from '@mui/icons-material/Delete';
 import IconButton from '@mui/material/IconButton';
+import { GoPerson } from "react-icons/go";
 
 
 
 const { TextArea } = Input;
 
-const PostView = ({ history }) => {
+const PostView = () => {
   const { idx } = useParams();
-  const [data, setData] = useState(null);
   const location = useLocation();
   const postData = location.state.data;
   const [comments, setComments] = useState([]);
@@ -30,13 +28,9 @@ const PostView = ({ history }) => {
     const fetchPostData = async () => {
       try {
         const postRef = doc(db, 'posts6', idx);
-        const postSnap = await getDoc(postRef);
+        await getDoc(postRef);
 
-        if (postSnap.exists()) {
-          setData(postSnap.data());
-        } else {
-          setData(null);
-        }
+     
 
         // 해당 게시글의 댓글만 가져오기
         const commentsQuery = query(
@@ -104,8 +98,8 @@ const PostView = ({ history }) => {
           <>
             <div className="post-view-row">
               <p style={{ fontFamily: 'bori' }}>
-                {' '}
-                <img src={person} alt={human} width="27" /> 익명{' '}
+                
+                <GoPerson  size={25} style={{ width: "30"}}/>익명{' '}
                 <label className="comment-time">{postData[idx].createdAt}</label>
               </p>
             </div>
@@ -140,7 +134,7 @@ const PostView = ({ history }) => {
               <div className="comment-container">
                 {comments.map((comment, index) => (
                   <div key={index} className="comment-item">
-                    <img src={human} width="50" alt="User Avatar" />
+                    <GoPerson  size={30} style={{ width: "50", marginTop : "10"}}/> 
                     <p className="comment-content">{comment.content}</p>
                     <p className="comment-time">{comment.createdAt}</p>
                     <IconButton aria-label="delete" size="small"

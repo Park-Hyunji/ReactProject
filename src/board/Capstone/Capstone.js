@@ -84,7 +84,7 @@ const Capstone = () => {
       <Header />
       
       <div className="korean-font"  style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-      <p style={{fontFamily: 'bori', fontWeight: 'bold', fontSize: '30px', color: 'skyblue' , marginLeft : "680px"}}>캡스톤디자인 게시판</p><img src={edit} style={{width: "30px", marginRight:"180px" }} onClick={() => navigate('./writer')} /> </div>
+      <p style={{fontFamily: 'bori', fontWeight: 'bold', fontSize: '30px', color: 'skyblue' , marginLeft : "680px"}}>캡스톤디자인 게시판</p><img src={edit} alt={edit} style={{width: "30px", marginRight:"180px" }} onClick={() => navigate('./writer')} /> </div>
 
       <CommonTable headersName={['글번호', '제목', '작성일', '수정', '삭제']}  >
         {currentPosts.map((item, index) => (

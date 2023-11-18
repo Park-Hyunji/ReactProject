@@ -15,7 +15,7 @@ const Header = () =>{
         <header>
             <Navbar collapseOnSelect expand="lg" className="custom-bg-grey">
         <Container>
-          <Navbar.Brand href="./main" 
+          <Navbar.Brand href="./" 
           style={{ fontFamily: 'bori', fontWeight: 'bold', fontSize: '28px', color: '#000000'}}
           >Hansung Computer</Navbar.Brand>
 
