@@ -4,6 +4,7 @@ import { db } from '../firebase';
 import { Input } from 'antd';
 import './Quiz.css';
 import Header from '../Layout/Header';
+import quiz from './quiz.png'
 
 const problemsData = [
   { id: 1, question: '두 정수 A와 B를 입력받은 다음, A+B를 출력하는 프로그램을 작성하시오' },
@@ -71,46 +72,46 @@ const App = () => {
 
   return (
     <>
-    <Header />
-    <div className="Quiz">
-      <div className="problem">
-        <h1>오늘의 문제</h1>
-        <br />
-        <br />
-        {randomProblem && (
-          <div>
-            <p>{randomProblem.question}</p>
-          </div>
-        )}
-      </div>
-
-      <div className="replies-section">
-        <div>
-          <TextArea
-            value={reply}
-            onChange={(e) => setReply(e.target.value)}
-            placeholder="댓글을 입력하세요"
-          />
-          <button onClick={handleReplySubmit}>댓글 남기기</button>
-        </div>
-        {filteredReplies.length > 0 ? (
-          // Reverse the order of filteredReplies before mapping
-          filteredReplies.reverse().map((reply) => (
-            <div key={reply.id} className="comment">
-              <p>{renderCommentText(reply.text)}</p>
-              <button onClick={() => handleReplyDelete(reply.id)}>삭제</button>
+      <Header />
+      <div className="Quiz">
+        <div className="problem">
+          <h1>오늘의 문제</h1>
+          <br />
+          <br />
+          {randomProblem && (
+            <div>
+              <p>{randomProblem.question}</p>
             </div>
-          ))
-        ) : (
-          <p></p>
-        )}
+          )}
+        </div>
+
+        <div className="replies-section">
+          <div>
+            <TextArea
+              value={reply}
+              onChange={(e) => setReply(e.target.value)}
+              placeholder="댓글을 입력하세요"
+            />
+            <button onClick={handleReplySubmit}>댓글 남기기</button>
+          </div>
+          {filteredReplies.length > 0 ? (
+            // Reverse the order of filteredReplies before mapping
+            filteredReplies.reverse().map((reply) => (
+              <div key={reply.id} className="comment">
+                <div className="comment-content">
+                  <img src={quiz} alt={quiz} width="27" />
+                  <p>{renderCommentText(reply.text)}</p>
+                </div>
+                <button onClick={() => handleReplyDelete(reply.id)}>삭제</button>
+              </div>
+            ))
+          ) : (
+            <p></p>
+          )}
+        </div>
       </div>
-    </div>
     </>
   );
 };
 
 export default App;
-
-
-
