@@ -22,6 +22,32 @@ body {
   margin-bottom: 10px;
 }
 
+.problem .hint {
+  padding: 10px;
+  font-size: 20px;
+  text-align: center;
+
+}
+
+.problem .hint button {
+  display: flex;
+  align-items: center; 
+  justify-content: center; 
+  width: 4%;
+  padding: 10px;
+  margin-left: auto; 
+  margin-right: auto;
+  margin-bottom: 15px;
+  border: 1px solid #000;
+  border-radius: 5px;
+  background-color: #fff;
+  color: #000;
+  font-family: 'bori';
+  cursor: pointer;
+
+}
+
+
 .replies-section {
   background-color: #fff;
   padding: 10px;
@@ -31,17 +57,19 @@ body {
 }
 
 .replies-section textarea {
-  width: 50%;
+  width: 30%;
   height: 100px;
   font-family: 'bori';
   margin-bottom: 10px;
-  margin-left: 200px; 
   resize: none;
+  margin-left: 130px;
+  align-items: center;
 }
 
 .replies-section button {
-  width: 10%;
+  width: 6%;
   padding: 10px;
+  margin-left: 20px;
   border: 1px solid #000; 
   border-radius: 5px;
   background-color: #fff;
@@ -63,7 +91,7 @@ body {
 
 .replies-section .comment p {
   flex: 1;
-  margin-right: 50px;
+  margin-right: 10px;
   text-align: left;
   font-family: 'bori';
   font-size: 20px;
@@ -71,30 +99,22 @@ body {
 }
 
 .replies-section .comment button {
-  width: 10%;
+  width: 4%;
   padding: 8px;
   border: 1px solid #000; 
   border-radius: 5px;
-  margin-right: 300px;
+  margin-right: 20%; 
   background-color: #fff;
   color: #000; 
   font-family: 'bori';
   cursor: pointer;
 }
 
-.comment {
-  display: flex;
-  align-items: center;
-}
-
 .comment-content {
   display: flex;
-  align-items: center;
-  margin-right: 10px; 
 }
 
-.comment-content img {
-  margin-left: 400px;
-  margin-right: 20px; 
+.comment-content .icon {
+  margin-left: 45%;
+  margin-right: 20px;
 }
-
