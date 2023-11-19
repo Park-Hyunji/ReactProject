@@ -5,7 +5,7 @@ import { Form, Input, Button } from 'antd';
 import { addDoc, collection, doc, updateDoc } from 'firebase/firestore';
 import { db } from '../../firebase';
 import { useNavigate, useLocation } from 'react-router-dom';
-import img from '../img/writerboogie.jpg';
+import img from '../img/sangsangbugi-coding.jpg';
 import './writer.css'; // 스타일 파일을 import합니다
 import moment from 'moment';
 
