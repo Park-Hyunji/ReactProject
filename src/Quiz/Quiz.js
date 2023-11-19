@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { doc, collection, addDoc, deleteDoc, onSnapshot } from 'firebase/firestore';
 import { db } from '../firebase';
-import { Input } from 'antd';
+import { Input, Button } from 'antd'; // Import Button from 'antd'
 import './Quiz.css';
 import Header from '../Layout/Header';
-import quiz from './quiz.png'
+import { FiMessageCircle } from "react-icons/fi";
 
 const problemsData = [
   { id: 1, question: '두 정수 A와 B를 입력받은 다음, A+B를 출력하는 프로그램을 작성하시오' },
@@ -14,12 +14,21 @@ const problemsData = [
   { id: 5, question: '알파벳으로만 이루어진 단어를 입력받아, 그 길이를 출력하는 프로그램을 작성하시오.' },
 ];
 
+const hint = [
+  { id: 1, hint: 'scanf()' },
+  { id: 2, hint: 'for문' },
+  { id: 3, hint: '배열' },
+  { id: 4, hint: 'if문' },
+  { id: 5, hint: 'strlen()' },
+];
+
 const { TextArea } = Input;
 
 const App = () => {
   const [randomProblem, setRandomProblem] = useState({});
   const [reply, setReply] = useState('');
   const [replies, setReplies] = useState([]);
+  const [showHint, setShowHint] = useState(false); // Added state for hint visibility
 
   useEffect(() => {
     const randomIndex = Math.floor(Math.random() * problemsData.length);
@@ -70,6 +79,10 @@ const App = () => {
     ));
   };
 
+  const handleHintToggle = () => {
+    setShowHint(!showHint);
+  };
+
   return (
     <>
       <Header />
@@ -83,7 +96,10 @@ const App = () => {
               <p>{randomProblem.question}</p>
             </div>
           )}
-        </div>
+          <div className="hint">
+          <Button onClick={handleHintToggle}>힌트</Button>
+          {showHint && <p>{hint.find(item => item.id === randomProblem.id)?.hint}</p>}
+        </div></div>
 
         <div className="replies-section">
           <div>
@@ -99,9 +115,9 @@ const App = () => {
             filteredReplies.reverse().map((reply) => (
               <div key={reply.id} className="comment">
                 <div className="comment-content">
-                  <img src={quiz} alt={quiz} width="27" />
+                  <div className="icon"><FiMessageCircle size={35} /></div>
                   <p>{renderCommentText(reply.text)}</p>
-                </div>
+                  </div>
                 <button onClick={() => handleReplyDelete(reply.id)}>삭제</button>
               </div>
             ))
