@@ -4,7 +4,6 @@ import CommonTable from '../../table/CommonTable';
 import CommonTableColumn from '../../table/CommonTableColumn';
 import CommonTableRow from '../../table/CommonTableRow';
 import Header from '../../Layout/Header';
-import { FloatButton } from 'antd';
 import { useNavigate } from 'react-router-dom';
 import {collection,getDocs,orderBy,query,deleteDoc,doc } from 'firebase/firestore';
 import { db } from '../../firebase';
@@ -73,15 +72,21 @@ const Web = () => {
     setDeleteModalVisible(false);
     setDeleteTargetId(null);
   };
+  const handleEditClick = (postId) => {
+    const selectedPost = dataList.find((item) => item.id === postId);
+    navigate('./writer', {
+      state: { title: selectedPost.title, content: selectedPost.content, postId: selectedPost.id },
+    });
+  };
 
   return (
     <>
       <Header />
       
       <div className="korean-font"  style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-      <p style={{fontFamily: 'bori', fontWeight: 'bold', fontSize: '30px', color: 'skyblue' , marginLeft : "680px"}}>웹프레임워크 게시판</p><img src={edit} style={{width: "30px", marginRight:"180px" }} onClick={() => navigate('./writer')} /> </div>
+      <p style={{fontFamily: 'bori', fontWeight: 'bold', fontSize: '30px', color: 'skyblue' , marginLeft : "680px"}}>웹프레임워크 게시판</p><img src={edit} alt={edit} style={{width: "30px", marginRight:"180px" }} onClick={() => navigate('./writer')} /> </div>
 
-      <CommonTable headersName={['글번호', '제목', '작성일', '삭제']}  >
+      <CommonTable headersName={['글번호', '제목', '작성일','수정', '삭제']}  >
         {currentPosts.map((item, index) => (
           <CommonTableRow key={index + indexOfFirstPost} >
             <CommonTableColumn >{index + 1 + indexOfFirstPost}</CommonTableColumn>
@@ -91,6 +96,9 @@ const Web = () => {
               </Link>
             </CommonTableColumn>
             <CommonTableColumn>{item.createdAt}</CommonTableColumn>
+            <CommonTableColumn>
+              <EditOutlined onClick={() => handleEditClick(item.id)} />
+            </CommonTableColumn>
             <CommonTableColumn>
               <DeleteOutlined onClick={() => handleDeleteClick(item.id)} />
             </CommonTableColumn>
@@ -127,7 +135,6 @@ const Web = () => {
 };
 
 export default Web;
-
 
 
 

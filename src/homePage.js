@@ -44,8 +44,6 @@ const HomePage = () => {
             빅데이터</p>
           </div>
         </div>
-      
-
     </div>
     
     </>

@@ -1,0 +1,35 @@
+/* ./Login/LoginModal.css */
+
+.custom-modal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+  
+.custom-modal-content {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    width: 300px;
+}
+  
+.custom-modal-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+  
+.custom-modal-body {
+    margin-bottom: 20px;
+}  
+.custom-modal-footer {
+    display: flex;
+    justify-content: space-between;
+}
+  
+  .error-message {
+    color: red;
+    margin-top: 10px;
+}

@@ -19,6 +19,7 @@
 
 .post-view-row {
   margin-bottom: 15px;
+  margin-top : 15px;
 }
 
 .post-view-content {
@@ -85,5 +86,4 @@
   flex: 1;
   margin-right: 10px;
 }
-
 
