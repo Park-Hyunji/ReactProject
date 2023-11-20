@@ -133,8 +133,8 @@ const PostView = () => {
               <div className="comment-container">
                 {comments.map((comment, index) => (
                   <div key={index} className="comment-item">
-                    <GoPerson  size={30} style={{ width: "50", marginTop : "10"}}/> 
-                    <p className="comment-content">{comment.content}</p>
+                    <GoPerson size={30} style={{ width: "50", marginTop : "10"}}/> 
+                    <p className="comment-content" style={{fontSize: "20px"}}>{comment.content}</p>
                     <p className="comment-time">{comment.createdAt}</p>
                     <IconButton aria-label="delete" size="small"
                      onClick={() => handleCommentDelete(comment.id)}>
