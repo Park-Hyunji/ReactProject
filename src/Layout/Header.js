@@ -48,15 +48,15 @@ const Header = () => {
     <header>
       <Navbar collapseOnSelect expand="lg" className="custom-bg-light-blue">
         <Container>
-          <Navbar.Brand href="./main"
+          <Navbar.Brand href="./"
             style={{ fontFamily: 'Akzidenz-grotesk-bold', fontWeight: 'bold', fontSize: '28px', color: '#000000' }}
-          >Hansung Computer</Navbar.Brand>
+          >HSUC</Navbar.Brand>
 
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="me-auto">
-		<NavDropdown title="1학년" style={{ fontFamily: 'bori', fontWeight: 'bold', fontSize: '20px', color: 'black' }}
-               id="collapsible-nav-dropdown">
+		<NavDropdown title="1학년" style={{ fontFamily: 'bori', fontWeight: 'bold', fontSize: '20px', color: 'black', marginLeft:'50px'}}
+               id="collapsible-nav-dropdown" >
                 <NavDropdown.Item as={Link} to="/ComputerProgramming">컴퓨터프로그래밍</NavDropdown.Item>
                 <NavDropdown.Item as= {Link} to ="/WebProgramming">웹프로그래밍</NavDropdown.Item>
               </NavDropdown>
@@ -86,12 +86,12 @@ const Header = () => {
                 </Nav.Link>
               ) : (
                 <Nav.Link eventKey={3} onClick={handleLoginModalShow}>
-                  Login
+                  LOGIN
                 </Nav.Link>
               )}
               {authenticated && (
                 <Nav.Link eventKey={4} onClick={handleLogout}>
-                Logout
+                LOGOUT
                 </Nav.Link>
               )}
               <CustomModal showModal={showModal} handleModalClose={handleModalClose} />
