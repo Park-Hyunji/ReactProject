@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, {  useEffect } from 'react';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
@@ -7,7 +7,6 @@ import { Link } from 'react-router-dom';
 import CustomModal from '../modal';
 import LoginModal from '../LoginModal';
 import { useAuth } from '../Login/Auth';
-import users from '../Login/users.json';
 
 const Header = () => {
   const { authenticated, login, logout } = useAuth();

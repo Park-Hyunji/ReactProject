@@ -18,27 +18,13 @@ const VideoPlayer = () => {
   return (
     <>
     <Header />
+    <hr></hr>
     <div className='youtubeName' style={{ textAlign: 'center',
     fontSize: '30px',fontFamily: 'bori', marginTop: '20px' }}>
       트랙 소개 영상
     </div>
     <div style={{ textAlign: 'center', marginTop: '20px' }}>
-      
-      <YouTube
-        videoId={playlist[playlistIndex]}
-        opts={{
-          width: '60%',
-          height: '560px',
-          playerVars: {
-            autoplay: 1,
-            modestbranding: 1,
-            playlist: playlist.join(','),
-          },
-        }}
-        onEnd={onEndHandler}
-      />
-    </div>
-    <div>
+      <div>
         {playlist.map((_, index) => (
           <button
             key={index}
@@ -58,6 +44,20 @@ const VideoPlayer = () => {
           </button>
         ))}
       </div>
+      <YouTube
+        videoId={playlist[playlistIndex]}
+        opts={{
+          width: '60%',
+          height: '560px',
+          playerVars: {
+            autoplay: 1,
+            modestbranding: 1,
+            playlist: playlist.join(','),
+          },
+        }}
+        onEnd={onEndHandler}
+      />
+    </div>
     </>
   );
 };
