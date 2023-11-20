@@ -27,9 +27,6 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      transition: 0.1s background ease-in;
-      &:hover {
-        background: #adb5bd;
-      }
+      
     }
   }

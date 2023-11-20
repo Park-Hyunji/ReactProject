@@ -3,7 +3,7 @@ import ToDoListItem from './ToDoListItem';
 import './todoList.css';
 import {List} from 'react-virtualized'
 
-function TodoList({ todos, onRemove, onToggle, onChangeSelectedTodo, onInsertToggle }) {
+function TodoList({ todos, onRemove, onToggle, onChangeSelectedTodo}) {
   const rowRender = useCallback(
     ({index,key,style}) => {
       const todo = todos[index];
@@ -13,25 +13,24 @@ function TodoList({ todos, onRemove, onToggle, onChangeSelectedTodo, onInsertTog
         key={key}
         onToggle={onToggle}
         onRemove={onRemove}
-        onInsertToggle={onInsertToggle}
         onChangeSelectedTodo={onChangeSelectedTodo}
         style={style}
       />
       )
     },
-    [ todos, onRemove, onToggle, onChangeSelectedTodo, onInsertToggle ]
+    [ todos, onRemove, onToggle, onChangeSelectedTodo ]
   )
   
   return (
     <List 
       className='TodoList'
-      width={480} // 전체너비
-      height={500}// 전체 높이
-      rowCount={todos.length}//항목갯수
-      rowHeight={57} // 항목 높이
-      rowRenderer={rowRender} //항목을 렌더링할 때 쓰는 함수
-      list={todos}//배열
-      style={{outline:'none'}} //List에 기본 적용되는 outline 스타일 제거
+      width={480} 
+      height={450}
+      rowCount={todos.length}
+      rowHeight={57}
+      rowRenderer={rowRender}
+      list={todos}
+      style={{outline:'none'}} 
     />
   );
 }

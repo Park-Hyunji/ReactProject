@@ -22,17 +22,10 @@ function ToDoTemplate() {
         checked: false,
       },
     ]);
-    const [selectedTodo, setSelectedTodo] = useState(null);
-    const [setInsertToggle] = useState(false);
-  
+    const [setSelectedTodo] = useState(null);
+    
     const nextId = useRef(4);
-    const onInsertToggle = useCallback(() => {
-      if (selectedTodo) {
-        setSelectedTodo((selectedTodo) => null);
-      }
-      setInsertToggle((prev) => !prev);
-    }, [selectedTodo]);
-  
+    
     const onChangeSelectedTodo = (todo) => {
       setSelectedTodo((selectedTodo) => todo);
     };
@@ -67,9 +60,7 @@ function ToDoTemplate() {
           onToggle={onToggle}
           onRemove={onRemove}
           onChangeSelectedTodo={onChangeSelectedTodo}
-          onInsertToggle={onInsertToggle}
         />
-        
       </>
     );
   }

@@ -10,8 +10,6 @@ const CustomModal = ({ showModal, handleModalClose }) => {
         <Modal.Title>TODOLIST</Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        {/* 모달 내용 추가 */}
-        {/* 예: 할 일 목록을 여기에 표시 */}
         <ToDoTemplate />
       </Modal.Body>
       <Modal.Footer>

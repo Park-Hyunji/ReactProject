@@ -17,7 +17,7 @@ const Header = () =>{
         <Container>
           <Navbar.Brand href="./main" 
           style={{ fontFamily: 'bori', fontWeight: 'bold', fontSize: '28px', color: '#000000'}}
-          >Hansung Computer</Navbar.Brand>
+          >Computer Community</Navbar.Brand>
 
 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">

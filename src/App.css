@@ -21,7 +21,7 @@
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: #ffffff;
 }
 
 .App-link {
@@ -37,7 +37,7 @@
   }
 }
 .custom-bg-light-blue {
-  background-color: #cfe1ff;
+  background: color #ffffff;;
 }
 
 @font-face {

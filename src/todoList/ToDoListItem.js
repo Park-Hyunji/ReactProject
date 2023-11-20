@@ -3,7 +3,6 @@ import {
   MdCheckBoxOutlineBlank,
   MdRemoveCircleOutline,
   MdCheckBox,
-  
 } from 'react-icons/md';
 import './ToDoListItem.css';
 import cn from 'classnames';
@@ -20,12 +19,10 @@ function ToDoListItem({
       <li className="TodoListItem">
         <div
           className={cn('checkbox', { checked: checked })}
-          onClick={() => onToggle(id)}
-        >
+          onClick={() => onToggle(id)}>
           {checked ? <MdCheckBox /> : <MdCheckBoxOutlineBlank />}
           <div className="text">{text}</div>
         </div>
-        
         <div className="remove" onClick={() => onRemove(id)}>
           <MdRemoveCircleOutline />
         </div>

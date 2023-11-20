@@ -19,7 +19,8 @@ const HomePage = () => {
 
       <div className='timetableContainer' >
         <Link to="/TimeTable" style=
-        {{fontFamily: 'bori', fontSize: '20px', color: 'black', textDecoration: 'none', marginLeft :"250px" }}>
+        {{fontFamily: 'bori', fontSize: '20px', 
+        marginTop:'10px', color: 'black', textDecoration: 'none', marginLeft :"250px" }}>
           <p>시간표 보러가기</p>
         </Link>
       </div>
@@ -29,7 +30,7 @@ const HomePage = () => {
           <div className='section1'>
           <Link to="/Quiz" style={{ fontWeight: 'bold' ,fontFamily: 'bori', fontSize: '20px', color: 'black', textDecoration: 'none' }} >오늘의 문제</Link>
             <p></p>
-            <p>오늘의 문제를 풀어보세요</p>
+            <p>매일 새로운 문제를 풀어보고 <br></br>의견을 나누세요</p>
           </div>
 
           {/* 오른쪽 구역 */}
@@ -37,6 +38,10 @@ const HomePage = () => {
           <Link to="/Youtube" style={{ fontWeight: 'bold' ,fontFamily: 'bori', fontSize: '20px', color: 'black', textDecoration: 'none' }}>트랙 소개영상</Link>
             <p></p>
             <p>트랙 소개영상 보러가기</p>
+            <p>웹 공학<br></br>
+            모바일 소프트웨어<br></br>
+            디지털 콘텐츠<br></br>
+            빅데이터</p>
           </div>
         </div>
       

@@ -24,7 +24,7 @@
     }
     &.checked {
       svg {
-        color: #9c88ff;
+        color: #ccc7e5;
       }
       .text {
         color: #adb5bd;
