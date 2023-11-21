@@ -244,15 +244,15 @@ const App = () => {
                 <Button onClick={handleAnswerSubmit} className="submit-button">
                   저장
                 </Button> 
-                <Button onClick={() => handleAnswerDelete(answer.id)} className="delete-button">
-                        삭제
-                </Button>
                 </div>
                 {filteredAnswers.length > 0 ? (
                   filteredAnswers.reverse().map((answer) => (
                     <div key={answer.id} className="answer">
                       <div className="answer-content">
                         <p>{renderAnswerText(answer.text)}</p>
+                        <Button onClick={() => handleAnswerDelete(answer.id)} className="delete-button">
+                        삭제
+                </Button>
                       </div>
                     </div>
                   ))
