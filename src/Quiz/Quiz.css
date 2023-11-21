@@ -1,11 +1,91 @@
+.Quiz {
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar {
+  font-family: 'bori';
+  overflow: auto;
+  height: 100%; 
+  padding: 10px; 
+  background-color: white;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.sidebar h2 {
+  font-size: 40px;
+}
+
+.sidebar h3 {
+  font-size: 30px;
+  text-align: left;
+}
+
+.sidebar .input {
+  font-size: 20px;
+  text-align: left;
+}
+
+.sidebar .output {
+  font-size: 20px;
+  text-align: left;
+}
+
+.sidebar .expected-input {
+  font-size: 20px;
+  text-align: left;
+}
+
+.sidebar .expected-output {
+  font-size: 20px;
+  text-align: left;
+}
+
+/* 힌트 */
+.hint {
+  font-size: 20px;
+}
+
+.hint button {
+  width: 10%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #000; 
+  border-radius: 5px;
+  background-color: #fff;
+  color: #000;
+  font-family: 'bori';
+  cursor: pointer;
+}
+
+/* 문제 정보 버튼 */
+.toggle-button {
+  width: 15%;
+  padding: 10px;
+  background-color: #fff;
+  border: 1px solid #000; 
+  border-radius: 5px;
+  color: #000;
+  font-family: 'bori';
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 2;
+  cursor: pointer;
+}
+
+.hidden {
+  width: 0;
+}
+
 .problem {
   background-color: #fff;
   font-family: 'bori';
   font-size: 25px;
   padding: 20px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   text-align: center;
 }
 
@@ -18,52 +98,50 @@
   margin-bottom: 10px;
 }
 
-.problem .hint {
-  padding: 10px;
-  font-size: 20px;
-  text-align: center;
+/* 정답, 댓글 */
 
+/* 정답, 댓글 각각의 영역 크기*/
+.answers-section, .comments-section {
+  width: 50%; 
 }
-
-.problem .hint button {
+ 
+/* 정답, 댓글 가로로 구성 */
+.answers-comments-section {
   display: flex;
-  align-items: center; 
-  justify-content: center; 
-  width: 4%;
-  padding: 10px;
-  margin-left: auto; 
-  margin-right: auto;
-  margin-bottom: 15px;
-  border: 1px solid #000;
-  border-radius: 5px;
-  background-color: #fff;
-  color: #000;
-  font-family: 'bori';
-  cursor: pointer;
-
+  justify-content: flex-start;
 }
 
-
-.replies-section {
-  background-color: #fff;
-  padding: 10px;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+/* 정답, 댓글 제목 */
+.input-answer-section h2 {
+  font-family: 'bori';
+  font-size: 40px;
+  margin-top: 20px;
+  margin-bottom: 20px;
   text-align: center;
 }
 
-.replies-section textarea {
-  width: 30%;
-  height: 100px;
+/* 정답 입력란 박스*/
+.answers-section textarea {
+  width: 60%;
+  max-height: 200px;
   font-family: 'bori';
+  font-size: 20px;
   margin-bottom: 10px;
+  margin-left: 10%;
   resize: none;
-  margin-left: 130px;
-  align-items: center;
+  align-items: left;
+}
+/* 정답 */
+.answer-content p{
+  text-align: left;
+  margin-left: 25%;
+  font-family: 'bori';
+  font-size: 20px;
 }
 
-.replies-section button {
-  width: 6%;
+/* 정답 저장 버튼 */
+.answers-section button {
+  width: 8%;
   padding: 10px;
   margin-left: 20px;
   border: 1px solid #000; 
@@ -74,43 +152,77 @@
   cursor: pointer;
 }
 
-.replies-section div {
-  margin-bottom: 10px;
-  text-align: center;
+/* 댓글 */
+
+.text-area-container {
+  margin-left: 15%;
 }
 
-.replies-section .comment {
-  display: flex;
-  align-items: center;
-  margin-bottom: 15px;
-}
-
-.replies-section .comment p {
-  flex: 1;
-  margin-right: 10px;
-  text-align: left;
+/* 댓글 입력 박스 */
+.comments-section textarea {
+  width: 50%;
+  height: 50px;
   font-family: 'bori';
   font-size: 20px;
-  color: black;
+  margin-bottom: 10px;
+  resize: none;
+  align-items: left;
 }
 
-.replies-section .comment button {
-  width: 4%;
-  padding: 8px;
+/* 댓글 남기기 버튼 */
+.submit-button {
+  width: 15%;
+  padding: 10px;
+  margin-left: 20px;
   border: 1px solid #000; 
   border-radius: 5px;
-  margin-right: 20%; 
   background-color: #fff;
-  color: #000; 
+  color: #000;
   font-family: 'bori';
   cursor: pointer;
 }
 
-.comment-content {
-  display: flex;
+
+.comments-section div {
+  margin-bottom: 10px;
 }
 
-.comment-content .icon {
-  margin-left: 45%;
-  margin-right: 20px;
+/* 아이콘, 댓글, 버튼 가로로 나란히 */
+.comment {
+  display: flex; /* 가로 나란히 */
+  align-items: center; 
+  margin-right: 5%;
 }
+
+/* 아이콘, 댓글, 버튼 가로로 나란히 */
+.comment-content {
+  display: flex; /* 가로 나란히 */
+}
+
+/* 댓글 아이콘 */
+.comment-content .icon {
+  margin-left: 40%;
+  margin-right: 20px;
+  margin-top: 10px;
+}
+
+.comments-section .comment p {
+  font-family: 'bori';
+  font-size: 20px;
+  color: black;
+  margin-top: 15px;
+}
+
+/* 댓글 삭제 버튼 */
+.comment button {
+  width: 10%;
+  margin-right: 10%;
+  padding: 10px;
+  border: 1px solid #000; 
+  border-radius: 5px;
+  background-color: #fff;
+  color: #000;
+  font-family: 'bori';
+  cursor: pointer;
+}
+
