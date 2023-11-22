@@ -5,7 +5,6 @@ import { Input, Button } from 'antd';
 import './Quiz.css';
 import Header from '../Layout/Header';
 import { FiMessageCircle } from 'react-icons/fi';
-import SplitPane from 'react-split-pane';
 
 const problemsData = [
   { id: 1, question: '두 정수 A와 B를 입력받은 다음, A+B를 출력하는 프로그램을 작성하시오' },
@@ -187,8 +186,8 @@ const App = () => {
   return (
     <>
       <Header />
-      <SplitPane split="vertical" minSize={300} defaultSize={isCodePaneOpen ? 500 : 0}>
-        <div className={`sidebar${isCodePaneOpen ? '' : ' hidden'}`}>
+      <div className="quiz-container">
+        <div className="sidebar">
           <h2><strong>문제 정보</strong></h2>
           <br /><br />
           <div className="input">
@@ -215,13 +214,10 @@ const App = () => {
             <Button onClick={handleHintToggle}>힌트</Button>
             {showHint && <p>{hint.find(item => item.id === randomProblem.id)?.hint}</p>}
           </div>
-        </div>
-        <div className="Quiz">
+          </div>
+        <div className="quiz-content">
           <div className="problem">
             <h1>오늘의 문제</h1>
-            <Button onClick={toggleCodePane} className="toggle-button">
-              {isCodePaneOpen ? 'Infomation Close' : 'Infomation Open'}
-            </Button>
             <br />
             {randomProblem && (
               <div>
@@ -289,10 +285,10 @@ const App = () => {
               </div>
             </div>
           </div>
-        </div>
-      </SplitPane>
+          </div>
+          </div>
     </>
   );
 };
 
-export default App
+export default App;
