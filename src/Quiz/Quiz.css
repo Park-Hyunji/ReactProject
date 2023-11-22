@@ -2,7 +2,7 @@
 .quiz h1{
   color: skyblue;
   font-family: 'bori';
-  font-size: 50px;
+  font-size: 40px;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
   text-align: center;
   margin-bottom: 10px;
@@ -12,7 +12,7 @@
 .problem p{
   background-color: #fff;
   font-family: 'bori';
-  font-size: 25px;
+  font-size: 23px;
   padding: 20px;
   margin-bottom: 20px;
   border-radius: 8px;
@@ -22,7 +22,10 @@
 /* 소제목 */
 h3 {
   font-size: 30px;
+  position: relative;
+  text-shadow: 2px 2px 4px rgba(124, 125, 180, 0.734);
 }
+
 
 /* 입력 영역 */
 .input {
@@ -30,6 +33,15 @@ h3 {
   margin-right: 8%;
   text-align: left;
   font-family: 'bori';
+}
+
+/* 입력 아이콘 */
+.input-section {
+  display: flex; /* 가로 정렬 */
+}
+
+.input-icon {
+  margin-right: 10px;
 }
 
 .input div {
@@ -42,6 +54,15 @@ h3 {
   margin-right: 8%;
   text-align: left;
   font-family: 'bori';
+}
+
+/* 출력 아이콘 */
+.output-section {
+  display: flex; /* 가로 정렬 */
+}
+
+.output-icon {
+  margin-right: 10px;
 }
 
 .output div {
