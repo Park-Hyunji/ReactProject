@@ -3,6 +3,12 @@
   flex-direction: column;
 }
 
+.quiz-container {
+  display: grid;
+  grid-template-columns: 400px 1fr; 
+  gap: 10px; 
+}
+
 .sidebar {
   font-family: 'bori';
   overflow: auto;
@@ -48,7 +54,8 @@
 }
 
 .hint button {
-  width: 10%;
+  width: 15%;
+  height: 40px;
   padding: 10px;
   margin-bottom: 10px;
   border: 1px solid #000; 
@@ -56,24 +63,6 @@
   background-color: #fff;
   color: #000;
   font-family: 'bori';
-  cursor: pointer;
-}
-
-/* 문제 정보 버튼 */
-.toggle-button {
-  width: 18%;
-  height: 40px;
-  padding: 10px;
-  background-color: #fff;
-  border: 1px solid #000; 
-  border-radius: 5px;
-  color: #000;
-  font-family: 'bori';
-  font-size: 20px;
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  z-index: 2;
   cursor: pointer;
 }
 
@@ -142,12 +131,13 @@
   font-family: 'bori';
   font-size: 20px;
   overflow-y: auto; /* 내용이 넘치면 스크롤 표시 */
-  max-height: 300px; /* 최대 높이 설정 */
+  max-height: 270px; /* 최대 높이 설정 */
 }
 
 /* 정답 저장 버튼 */
 .answers-section button {
   width: 8%;
+  height: 40px;
   padding: 10px;
   margin-left: 20px;
   border: 1px solid #000; 
@@ -167,7 +157,7 @@
 /* 댓글 입력 박스 */
 .comments-section textarea {
   width: 50%;
-  height: 50px;
+  height: 45px;
   font-family: 'bori';
   font-size: 20px;
   margin-bottom: 10px;
@@ -177,7 +167,8 @@
 
 /* 댓글 남기기 버튼 */
 .submit-button {
-  width: 15%;
+  width: 20%;
+  height: 40px;
   padding: 10px;
   margin-left: 20px;
   border: 1px solid #000; 
@@ -207,16 +198,19 @@
 
 /* 댓글 아이콘 */
 .comment-content .icon {
-  margin-left: 40%;
+  margin-left: 30%;
   margin-right: 20px;
   margin-top: 10px;
 }
 
 .comments-section .comment p {
+  width: 90%;
   font-family: 'bori';
   font-size: 20px;
   color: black;
   margin-top: 15px;
+  text-align: left;
+  margin-right: 10px;
 }
 
 /* 댓글 삭제 버튼 */
