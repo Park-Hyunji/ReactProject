@@ -47,14 +47,6 @@ const QOutput = [
   { id: 5, output: '8' },
 ]
 
-const hint = [
-  { id: 1, hint: 'scanf()' },
-  { id: 2, hint: 'for문' },
-  { id: 3, hint: '배열' },
-  { id: 4, hint: 'if문' },
-  { id: 5, hint: 'strlen()' },
-];
-
 const { TextArea } = Input;
 
 
@@ -62,9 +54,6 @@ const App = () => {
   const [randomProblem, setRandomProblem] = useState({});
   const [reply, setReply] = useState('');
   const [replies, setReplies] = useState([]);
-  const [answer, setAnswer] = useState('');
-  const [answers, setAnswers] = useState([]);
-  const [showHint, setShowHint] = useState(false);
   const [selectedProblemInput, setSelectedProblemInput] = useState('');
   const [selectedProblemOutput, setSelectedProblemOutput] = useState('');
   const [selectedQInput, setSelectedQInput] = useState('');
@@ -95,20 +84,9 @@ const App = () => {
       });
       setReplies(repliesData);
     });
-
-    const answersRef = collection(db, 'Qanswers');
-    onSnapshot(answersRef, (snapshot) => {
-      const answersData = [];
-      snapshot.forEach((doc) => {
-        const answer = { id: doc.id, ...doc.data() };
-        answersData.push(answer);
-      });
-      setAnswers(answersData);
-    });
   }, []);
 
   const filteredReplies = replies.filter((reply) => reply.questionId === randomProblem.id);
-  const filteredAnswers = answers.filter((answer) => answer.questionId === randomProblem.id);
 
   const handleReplySubmit = async () => {
     if (reply.trim() !== '') {
@@ -124,33 +102,11 @@ const App = () => {
     }
   };
 
-  const handleAnswerSubmit = async () => {
-    if (answer.trim() !== '') {
-      const answerData = {
-        text: answer,
-        questionId: randomProblem.id,
-      };
-
-      const answersRef = collection(db, 'Qanswers');
-      await addDoc(answersRef, answerData);
-
-      setAnswer('');
-    }
-  };
-
   const handleReplyDelete = async (replyId) => {
     try {
       await deleteDoc(doc(db, 'Qcomments', replyId));
     } catch (error) {
       console.error('Error deleting reply: ', error);
-    }
-  };
-
-  const handleAnswerDelete = async (answerId) => {
-    try {
-      await deleteDoc(doc(db, 'Qanswers', answerId));
-    } catch (error) {
-      console.error('Error deleting answer: ', error);
     }
   };
 
@@ -164,27 +120,19 @@ const App = () => {
     ));
   };
 
-  const renderAnswerText = (text) => {
-    // Replace newline characters with HTML line break tags for answers
-    return text.split('\n').map((line, index) => (
-      <React.Fragment key={index}>
-        {line}
-        <br />
-      </React.Fragment>
-    ));
-  };
-
-  const handleHintToggle = () => {
-    setShowHint(!showHint);
-  };
-
   return (
     <>
       <Header />
-      <div className="quiz-container">
-        <div className="sidebar">
-          <h2><strong>문제 정보</strong></h2>
-          <br /><br />
+      <div className="quiz">
+      <h1>오늘의 문제</h1>
+            <br />
+          </div>
+          {randomProblem && (
+              <div className="problem">
+                <p>{randomProblem.question}</p>
+              </div>
+            )}
+          <br />
           <div className="input">
             <h3>입력</h3>
             <hr /><div>{selectedProblemInput}</div>
@@ -195,6 +143,7 @@ const App = () => {
             <hr /><div>{selectedProblemOutput}</div>
             <br /><br />
           </div>
+          <div className="expected">
           <div className="expected-input">
             <h3>예상 입력</h3>
             <hr /><div>{selectedQInput}</div>
@@ -203,54 +152,12 @@ const App = () => {
           <div className="expected-output">
             <h3>예상 출력</h3>
             <hr /><div>{selectedQOutput}</div>
-          </div>
-          <br /><br />
-          <div className="hint">
-            <Button onClick={handleHintToggle}>힌트</Button>
-            {showHint && <p>{hint.find(item => item.id === randomProblem.id)?.hint}</p>}
+            
           </div>
           </div>
-        <div className="quiz-content">
-          <div className="problem">
-            <h1>오늘의 문제</h1>
-            <br />
-            {randomProblem && (
-              <div>
-                <p>{randomProblem.question}</p>
-              </div>
-            )}
-          </div>
+          <div className="hr">
           <hr />
-          <div className="input-answer-section">
-            <div className="answers-comments-section">
-              <div className="answers-section">
-                <h2>정답</h2>
-                <div className="answer-area-container">
-                  <TextArea
-                    value={answer}
-                    onChange={(e) => setAnswer(e.target.value)}
-                    placeholder="정답을 입력하세요"
-                  />
-               
-                <Button onClick={handleAnswerSubmit} className="submit-button">
-                  저장
-                </Button> 
-                </div>
-                {filteredAnswers.length > 0 ? (
-                  filteredAnswers.reverse().map((answer) => (
-                    <div key={answer.id} className="answer">
-                      <div className="answer-content">
-                        <p>{renderAnswerText(answer.text)}</p>
-                        <Button onClick={() => handleAnswerDelete(answer.id)} className="delete-button">
-                        삭제
-                </Button>
-                      </div>
-                    </div>
-                  ))
-                ) : (
-                  <p></p>
-                )}
-              </div>
+          </div>
               <div className="comments-section">
                 <h2>댓글</h2>
                 <div className="text-area-container">
@@ -278,12 +185,8 @@ const App = () => {
                   <p></p>
                 )}
               </div>
-            </div>
-          </div>
-          </div>
-          </div>
     </>
   );
-};
+                };
 
 export default App;
