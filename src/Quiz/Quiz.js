@@ -64,7 +64,6 @@ const App = () => {
   const [replies, setReplies] = useState([]);
   const [answer, setAnswer] = useState('');
   const [answers, setAnswers] = useState([]);
-  const [isCodePaneOpen, setIsCodePaneOpen] = useState(false);
   const [showHint, setShowHint] = useState(false);
   const [selectedProblemInput, setSelectedProblemInput] = useState('');
   const [selectedProblemOutput, setSelectedProblemOutput] = useState('');
@@ -173,10 +172,6 @@ const App = () => {
         <br />
       </React.Fragment>
     ));
-  };
-
-  const toggleCodePane = () => {
-    setIsCodePaneOpen(!isCodePaneOpen);
   };
 
   const handleHintToggle = () => {
