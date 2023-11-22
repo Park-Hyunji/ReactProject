@@ -5,6 +5,9 @@ import { Input, Button } from 'antd';
 import './Quiz.css';
 import Header from '../Layout/Header';
 import { FiMessageCircle } from 'react-icons/fi';
+import EditNoteOutlinedIcon from '@mui/icons-material/EditNoteOutlined';
+import OutputOutlinedIcon from '@mui/icons-material/OutputOutlined';
+import QuizOutlinedIcon from '@mui/icons-material/QuizOutlined';
 
 const problemsData = [
   { id: 1, question: '두 정수 A와 B를 입력받은 다음, A+B를 출력하는 프로그램을 작성하시오' },
@@ -135,14 +138,20 @@ const App = () => {
           <br />
           <div className="input">
             <h3>입력</h3>
-            <hr /><div>{selectedProblemInput}</div>
-          </div>
+            <hr />
+            <div className="input-section">
+            <div className="input-icon"><EditNoteOutlinedIcon size={30} /></div>
+            <p>{selectedProblemInput}</p>
+          </div></div>
           <br /><br />
           <div className="output">
             <h3>출력</h3>
-            <hr /><div>{selectedProblemOutput}</div>
+            <hr />
+            <div className="output-section">
+            <div className="output-icon"><OutputOutlinedIcon size={30} /></div>
+            <p>{selectedProblemOutput}</p>
+          </div></div>
             <br /><br />
-          </div>
           <div className="expected">
           <div className="expected-input">
             <h3>예상 입력</h3>
