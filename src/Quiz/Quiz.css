@@ -126,7 +126,7 @@
 /* 정답 */
 .answer-content p {
   text-align: left;
-  margin-left: 18%;
+  margin-left: 22%;
   margin-top: 30px;
   font-family: 'bori';
   font-size: 20px;
@@ -151,7 +151,7 @@
 /* 댓글 */
 
 .text-area-container {
-  margin-left: 15%;
+  margin-left: 20%;
 }
 
 /* 댓글 입력 박스 */
@@ -171,6 +171,7 @@
   height: 40px;
   padding: 10px;
   margin-left: 20px;
+  margin-bottom: 10px;
   border: 1px solid #000; 
   border-radius: 5px;
   background-color: #fff;
@@ -198,7 +199,7 @@
 
 /* 댓글 아이콘 */
 .comment-content .icon {
-  margin-left: 30%;
+  margin-left: 38%;
   margin-right: 20px;
   margin-top: 10px;
 }
@@ -226,4 +227,3 @@
   font-family: 'bori';
   cursor: pointer;
 }
-
