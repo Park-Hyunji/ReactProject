@@ -49,6 +49,7 @@
 
 .hint button {
   width: 10%;
+  height: 40px;
   padding: 10px;
   margin-bottom: 10px;
   border: 1px solid #000; 
@@ -62,7 +63,7 @@
 /* 문제 정보 버튼 */
 .toggle-button {
   width: 18%;
-  height: 40px;
+  height: 50px;
   padding: 10px;
   background-color: #fff;
   border: 1px solid #000; 
@@ -142,12 +143,13 @@
   font-family: 'bori';
   font-size: 20px;
   overflow-y: auto; /* 내용이 넘치면 스크롤 표시 */
-  max-height: 300px; /* 최대 높이 설정 */
+  max-height: 270px; /* 최대 높이 설정 */
 }
 
 /* 정답 저장 버튼 */
 .answers-section button {
   width: 8%;
+  height: 40px;
   padding: 10px;
   margin-left: 20px;
   border: 1px solid #000; 
@@ -167,7 +169,7 @@
 /* 댓글 입력 박스 */
 .comments-section textarea {
   width: 50%;
-  height: 50px;
+  height: 45px;
   font-family: 'bori';
   font-size: 20px;
   margin-bottom: 10px;
@@ -178,6 +180,7 @@
 /* 댓글 남기기 버튼 */
 .submit-button {
   width: 15%;
+  height: 40px;
   padding: 10px;
   margin-left: 20px;
   border: 1px solid #000; 
