@@ -1,0 +1,92 @@
+.fullMain {
+  height: 100vh;
+  background-image: url("./image/image4.jpg");
+  background-size: cover;
+}
+
+.namebox {
+  width: 400px;
+  height: 50px;
+  display: flex;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: 150px;
+  text-align: center;
+}
+
+.name {
+  font-size: 30px;
+  font-family: "bori";
+  font-weight: "bold";
+  margin: auto;
+}
+
+.timetableContainer {
+
+  width: 600px;
+  height: 50px;
+  background-color: rgba(255, 255, 255, 0.5);
+  display: flex;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: 220px;
+  align-items: center;
+
+}
+
+.timetableButton {
+  width: 250px;
+  height: 50px;
+  color: black;
+  background-color: rgba(255, 255, 255, 0.3);
+  font-size: 30px;
+  font-weight: 'bold';
+}
+
+.whiteboxContainer {
+  width: 1000px;
+  height: 270px;
+  background-color: rgba(255, 255, 255, 0.5);
+  display: flex;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 0;
+}
+
+/* 각 구역 스타일 */
+.section1,
+.section2 {
+  text-align: center;
+  flex: 1;
+  padding: 20px;
+  font-family: 'bori';
+  font-size: 20px;
+}
+
+/* 왼쪽 섹션 */
+.section1 {
+  background-color: rgba(255, 255, 255, 0.3);
+  /* 첫 번째 구역의 배경색 */
+}
+
+/* 오른쪽 섹션 */
+.section2 {
+  background-color: rgba(255, 255, 255, 0.3);
+  /* 두 번째 구역의 배경색 */
+}
+
+/* 직선 */
+.whiteboxContainer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  border-left: 2px solid #ccc;
+
+}
+
+

@@ -1,0 +1,190 @@
+/* 오늘의 문제 제목 */
+.quiz h1{
+  color: skyblue;
+  font-family: 'bori';
+  font-size: 40px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+/* 문제 */
+.problem p{
+  background-color: #fff;
+  font-family: 'bori';
+  font-size: 23px;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  text-align: center;
+}
+ 
+/* 소제목 */
+h3 {
+  font-size: 30px;
+  position: relative;
+  text-shadow: 2px 2px 4px rgba(124, 125, 180, 0.734);
+}
+
+
+/* 입력 영역 */
+.input {
+  margin-left: 8%;
+  margin-right: 8%;
+  text-align: left;
+  font-family: 'bori';
+}
+
+/* 입력 아이콘 */
+.input-section {
+  display: flex; /* 가로 정렬 */
+}
+
+.input-icon {
+  margin-right: 10px;
+}
+
+.input div {
+  font-size: 22px;
+}
+
+/* 출력 영역 */
+.output {
+  margin-left: 8%;
+  margin-right: 8%;
+  text-align: left;
+  font-family: 'bori';
+}
+
+/* 출력 아이콘 */
+.output-section {
+  display: flex; /* 가로 정렬 */
+}
+
+.output-icon {
+  margin-right: 10px;
+}
+
+.output div {
+  font-size: 22px;
+}
+
+/* 예상 입출력 영역 */
+
+/* 가로로 구성 */
+.expected {
+  display: flex;
+  justify-content: flex-start;
+}
+
+/* 예상 입력 영역 */
+.expected-input {
+  margin-left: 8%;
+  margin-right: 8%;
+  text-align: left;
+  font-family: 'bori';
+}
+
+.expected-input div {
+  font-size: 22px;
+}
+
+/* 예상 출력 영역 */
+.expected-output {
+  margin-left: 8%;
+  margin-right: 8%;
+  text-align: left;
+  font-family: 'bori';
+}
+
+.expected-output div {
+  font-size: 22px;
+}
+
+.hr {
+  margin-left: 8%;
+  margin-right: 8%;
+  margin-bottom: 30px;
+}
+
+
+/* 댓글 */
+
+
+/* 댓글 영역 */
+.comments-section {
+  font-family: 'bori';
+}
+
+.comments-section h2 {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* 댓글 입력 박스 */
+.text-area-container textarea {
+  width: 25%;
+  height: 45px;
+  font-family: 'bori';
+  font-size: 20px;
+  margin-bottom: 10px;
+  margin-left: 100px;
+}
+
+/* 댓글 남기기 버튼 */
+.submit-button {
+  width: 6%;
+  height: 45px;
+  padding: 10px;
+  margin-left: 20px;
+  margin-bottom: 10px;
+  border: 1px solid #000; 
+  border-radius: 5px;
+  background-color: #fff;
+  color: #000;
+  font-family: 'bori';
+  cursor: pointer;
+}
+
+/* 아이콘, 댓글, 버튼 가로로 나란히 */
+.comment {
+  display: flex; /* 가로 나란히 */
+  align-items: center; 
+  margin-right: 5%;
+}
+
+/* 아이콘, 댓글, 버튼 가로로 나란히 */
+.comment-content {
+  display: flex; /* 가로 나란히 */
+}
+
+/* 댓글 아이콘 */
+.comment-content .icon {
+  margin-left: 60%;
+  margin-right: 20px;
+  margin-top: 10px;
+}
+
+.comments-section .comment p {
+  width: 90%;
+  font-family: 'bori';
+  font-size: 20px;
+  color: black;
+  margin-top: 10px;
+  text-align: left;
+  margin-right: 10px;
+}
+
+/* 댓글 삭제 버튼 */
+.comment button {
+  width: 5%;
+  height: 40px;
+  padding: 10px;
+  margin-right: 30%;
+  border: 1px solid #000; 
+  border-radius: 5px;
+  background-color: #fff;
+  color: #000;
+  font-family: 'bori';
+  cursor: pointer;
+}
