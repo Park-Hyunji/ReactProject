@@ -1,6 +1,8 @@
-
+<div align = center>
+  
 # HSUC
 학생들을 편리를 위한 웹사이트 [HSUC] <br><br>
+</div>
 
 
 ## 개요
